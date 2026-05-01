@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-label="Solwave gradient mark">
+  <defs>
+    <linearGradient id="warm" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffb02e"/>
+      <stop offset="48%" stop-color="#ff365f"/>
+      <stop offset="49%" stop-color="#ff365f" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#ff365f" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="cool" x1="1" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#0044a8"/>
+      <stop offset="55%" stop-color="#061b44"/>
+      <stop offset="56%" stop-color="#061b44" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#061b44" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="circle">
+      <circle cx="512" cy="512" r="512"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#circle)">
+    <rect width="1024" height="1024" fill="url(#cool)"/>
+    <rect width="1024" height="1024" fill="url(#warm)"/>
+  </g>
+</svg>
