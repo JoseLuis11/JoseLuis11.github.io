@@ -1,0 +1,20 @@
+---
+import SectionHeading from './SectionHeading.astro';
+import { processSteps } from '@data/site';
+---
+
+<section class="section section-shell" aria-labelledby="process-title">
+  <SectionHeading eyebrow="How we work" title="A simple process for complex problems." />
+
+  <ol class="process-list">
+    {
+      processSteps.map((step, index) => (
+        <li class="process-list__item">
+          <span class="process-list__number">{index + 1}</span>
+          <h3>{step.title}</h3>
+          <p>{step.description}</p>
+        </li>
+      ))
+    }
+  </ol>
+</section>

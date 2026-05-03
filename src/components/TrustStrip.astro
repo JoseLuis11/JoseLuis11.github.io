@@ -1,0 +1,10 @@
+---
+const trustItems = ['Acme Corp', 'Layers', 'Cloudz', 'InvoiceLab', 'Delta'];
+---
+
+<section class="trust-strip" aria-labelledby="trust-title">
+  <h2 class="trust-strip__title" id="trust-title">Trusted by founders and teams</h2>
+  <ul class="trust-strip__list" aria-label="Example client names">
+    {trustItems.map((item) => <li>{item}</li>)}
+  </ul>
+</section>

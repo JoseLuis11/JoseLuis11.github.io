@@ -1,0 +1,19 @@
+---
+import SectionHeading from './SectionHeading.astro';
+import { technologies } from '@data/site';
+---
+
+<section class="section section-shell" aria-labelledby="capabilities-title">
+  <SectionHeading eyebrow="Technologies we work with" title="Capabilities built on reliable tools." />
+
+  <ul class="tech-list" aria-label="Technology stack">
+    {
+      technologies.map((technology) => (
+        <li class="tech-card">
+          <span class="tech-card__icon">{technology.shortName}</span>
+          <span>{technology.name}</span>
+        </li>
+      ))
+    }
+  </ul>
+</section>

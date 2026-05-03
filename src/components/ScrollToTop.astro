@@ -1,0 +1,40 @@
+---
+const revealOffset = 640;
+---
+
+<button
+  class="scroll-to-top"
+  type="button"
+  aria-label="Scroll to top"
+  aria-hidden="true"
+  data-scroll-to-top
+  data-reveal-offset={revealOffset}
+>
+  <span aria-hidden="true">↑</span>
+</button>
+
+<script is:inline>
+  if (!window.__solwaveScrollToTopReady) {
+    window.__solwaveScrollToTopReady = true;
+
+    const button = document.querySelector('[data-scroll-to-top]');
+
+    if (button) {
+      const revealOffset = Number(button.dataset.revealOffset || 640);
+
+      const setVisibility = () => {
+        const shouldShow = window.scrollY >= revealOffset;
+        button.setAttribute('aria-hidden', String(!shouldShow));
+        button.tabIndex = shouldShow ? 0 : -1;
+        button.classList.toggle('is-visible', shouldShow);
+      };
+
+      button.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      setVisibility();
+      window.addEventListener('scroll', setVisibility, { passive: true });
+    }
+  }
+</script>

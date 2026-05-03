@@ -1,0 +1,33 @@
+---
+import SectionHeading from './SectionHeading.astro';
+import { projects } from '@data/site';
+---
+
+<section class="section section-shell" id="work" aria-labelledby="work-title">
+  <SectionHeading eyebrow="Featured work" title="Some things we've built." />
+
+  <div class="card-grid card-grid--projects">
+    {
+      projects.map((project) => (
+        <article class="project-card">
+          <div class={`project-card__media project-card__media--${project.variant}`} aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <div class="project-card__panel"></div>
+          </div>
+          <div class="project-card__content">
+            <h3>{project.title}</h3>
+            <span class="tag">{project.category}</span>
+            <p>{project.description}</p>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+
+  <a class="button button--secondary section-action" href="mailto:hello@solwave.dev">
+    View All Projects
+  </a>
+</section>

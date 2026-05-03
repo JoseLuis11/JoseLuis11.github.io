@@ -1,0 +1,71 @@
+---
+import type { Service, ValuePoint } from '@data/site';
+
+type IconName = Service['icon'] | ValuePoint['icon'];
+
+type Props = {
+  name: IconName;
+};
+
+const { name } = Astro.props;
+---
+
+<svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none">
+  {
+    name === 'window' && (
+      <>
+        <rect x="4" y="5" width="16" height="12" rx="2" />
+        <path d="M4 9h16M8 20h8M10 17v3M14 17v3" />
+      </>
+    )
+  }
+  {
+    name === 'api' && (
+      <>
+        <path d="M8 8h8v8H8z" />
+        <path d="M12 3v5M12 16v5M3 12h5M16 12h5M5.5 5.5 8 8M16 16l2.5 2.5M18.5 5.5 16 8M8 16l-2.5 2.5" />
+      </>
+    )
+  }
+  {
+    name === 'spark' && (
+      <>
+        <path d="M12 3l2.1 5.2L20 10.4l-5.4 2.8L12 21l-2.6-7.8L4 10.4l5.9-2.2L12 3z" />
+        <path d="M18.5 3.5v3M17 5h3" />
+      </>
+    )
+  }
+  {
+    name === 'cloud' && (
+      <>
+        <path d="M7.5 18h9.2a4.3 4.3 0 0 0 .8-8.5 6 6 0 0 0-11.4 1.7A3.4 3.4 0 0 0 7.5 18z" />
+      </>
+    )
+  }
+  {
+    name === 'atom' && (
+      <>
+        <circle cx="12" cy="12" r="1.8" />
+        <ellipse cx="12" cy="12" rx="8.2" ry="3.3" />
+        <ellipse cx="12" cy="12" rx="8.2" ry="3.3" transform="rotate(60 12 12)" />
+        <ellipse cx="12" cy="12" rx="8.2" ry="3.3" transform="rotate(120 12 12)" />
+      </>
+    )
+  }
+  {
+    name === 'scale' && (
+      <>
+        <path d="M12 4v16M6 8h12M8 8l-3 5h6L8 8zM16 8l-3 5h6l-3-5z" />
+      </>
+    )
+  }
+  {
+    name === 'impact' && (
+      <>
+        <path d="M12 4v16M4 12h16" />
+        <circle cx="12" cy="12" r="7" />
+        <circle cx="12" cy="12" r="3" />
+      </>
+    )
+  }
+</svg>

@@ -1,0 +1,40 @@
+---
+import Logo from './Logo.astro';
+
+const year = new Date().getFullYear();
+const whatsappText = 'Hi Solwave, I’m interested in building a software project and would like to learn more.';
+const whatsappUrl = `https://wa.me/526462239495?text=${encodeURIComponent(whatsappText)}`;
+---
+
+<footer class="site-footer">
+  <div class="site-footer__brand">
+    <Logo size="sm" />
+    <p>Modern software systems designed for clarity, speed and scale.</p>
+  </div>
+
+  <nav class="site-footer__nav" aria-label="Footer navigation">
+    <div>
+      <h2>Navigation</h2>
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div>
+      <h2>Services</h2>
+      <a href="#services">Web Applications</a>
+      <a href="#services">API & Backend</a>
+      <a href="#services">Frontend Development</a>
+      <a href="#services">Cloud & DevOps</a>
+    </div>
+    <div>
+      <h2>Resources</h2>
+      <a href="mailto:hello@solwave.dev">hello@solwave.dev</a>
+      <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      <a href="https://www.linkedin.com/in/jose-luis-castro-132626123" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </div>
+  </nav>
+
+  <p class="site-footer__copyright">&copy; {year} Solwave. All rights reserved.</p>
+</footer>

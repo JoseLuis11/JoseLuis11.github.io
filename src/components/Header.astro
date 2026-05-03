@@ -1,0 +1,21 @@
+---
+import Logo from './Logo.astro';
+import ContactChoice from './ContactChoice.astro';
+import { navItems } from '@data/site';
+---
+
+<header class="site-header" aria-label="Primary navigation">
+  <Logo size="sm" />
+
+  <nav class="site-header__nav" aria-label="Main menu">
+    {
+      navItems.map((item) => (
+        <a class="site-header__link" href={item.href}>
+          {item.label}
+        </a>
+      ))
+    }
+  </nav>
+
+  <ContactChoice label="Let's Talk" compact />
+</header>
