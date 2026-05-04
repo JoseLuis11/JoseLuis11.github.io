@@ -2,6 +2,8 @@
 import Logo from './Logo.astro';
 import ContactChoice from './ContactChoice.astro';
 import { navItems } from '@data/site';
+
+const mobileMenuId = 'mobile-navigation-menu';
 ---
 
 <header class="site-header" aria-label="Primary navigation">
@@ -17,5 +19,91 @@ import { navItems } from '@data/site';
     }
   </nav>
 
-  <ContactChoice label="Let's Talk" compact />
+  <div class="site-header__actions">
+    <ContactChoice label="Let's Talk" compact />
+    <button
+      class="site-header__menu-button"
+      type="button"
+      aria-expanded="false"
+      aria-controls={mobileMenuId}
+      data-mobile-menu-trigger
+    >
+      <span class="site-header__menu-label" data-mobile-menu-label>Menu</span>
+      <span class="site-header__menu-close" aria-hidden="true">×</span>
+    </button>
+  </div>
+
+  <nav class="site-header__mobile-nav" id={mobileMenuId} aria-label="Mobile menu" data-mobile-menu hidden>
+    {
+      navItems.map((item) => (
+        <a class="site-header__mobile-link" href={item.href} data-mobile-menu-link>
+          <span>{item.label}</span>
+          <span aria-hidden="true">↗</span>
+        </a>
+      ))
+    }
+  </nav>
 </header>
+
+<script is:inline>
+  (() => {
+    const header = document.querySelector('.site-header');
+    const trigger = header?.querySelector('[data-mobile-menu-trigger]');
+    const menu = header?.querySelector('[data-mobile-menu]');
+
+    if (!header || !trigger || !menu) {
+      return;
+    }
+
+    const updateScrolledState = () => {
+      header.classList.toggle('is-scrolled', window.scrollY > 80);
+    };
+
+    const closeMenu = (shouldFocus = false) => {
+      header.classList.remove('is-mobile-menu-open');
+      trigger.setAttribute('aria-expanded', 'false');
+      menu.setAttribute('hidden', '');
+
+      if (shouldFocus) {
+        trigger.focus();
+      }
+    };
+
+    const openMenu = () => {
+      header.classList.add('is-mobile-menu-open');
+      trigger.setAttribute('aria-expanded', 'true');
+      menu.removeAttribute('hidden');
+    };
+
+    trigger.addEventListener('click', () => {
+      if (header.classList.contains('is-mobile-menu-open')) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
+
+    menu.querySelectorAll('[data-mobile-menu-link]').forEach((link) => {
+      link.addEventListener('click', () => closeMenu());
+    });
+
+    header.querySelector('[data-contact-choice-trigger]')?.addEventListener('click', () => {
+      closeMenu();
+    });
+
+    document.addEventListener('click', (event) => {
+      if (!header.contains(event.target)) {
+        closeMenu();
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && header.classList.contains('is-mobile-menu-open')) {
+        closeMenu(true);
+      }
+    });
+
+    updateScrolledState();
+    window.addEventListener('scroll', updateScrolledState, { passive: true });
+  })();
+</script>

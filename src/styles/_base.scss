@@ -61,15 +61,11 @@ select {
 }
 
 .site-shell {
-  @include container;
-
   position: relative;
-  overflow: hidden;
-  margin-block: clamp($space-4, 3vw, $space-8);
-  border: 1px solid $color-border;
-  border-radius: $radius-xl;
+  overflow: clip;
+  width: 100%;
+  margin: 0;
   background: $gradient-panel;
-  box-shadow: $shadow-panel;
 }
 
 .section-shell {
