@@ -49,23 +49,25 @@ select {
   @include focus-ring;
 }
 
-.page-background {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background:
-    radial-gradient(circle at 78% 5%, rgba($color-orange, 0.16), transparent 28rem),
-    radial-gradient(circle at 78% 30%, rgba($color-violet, 0.18), transparent 34rem),
-    radial-gradient(circle at 15% 88%, rgba($color-blue, 0.12), transparent 30rem),
-    $color-midnight-950;
-}
-
 .site-shell {
   position: relative;
   overflow: clip;
   width: 100%;
   margin: 0;
-  background: $gradient-panel;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 100svh;
+  background:
+    radial-gradient(circle at 78% 5%, rgba($color-orange, 0.16), transparent 28rem),
+    radial-gradient(circle at 78% 30%, rgba($color-violet, 0.18), transparent 34rem),
+    radial-gradient(circle at 15% 88%, rgba($color-blue, 0.12), transparent 30rem),
+    $color-midnight-950;
+  pointer-events: none;
 }
 
 .section-shell {
