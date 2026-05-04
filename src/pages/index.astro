@@ -17,7 +17,6 @@ const description = 'Modern software systems designed for clarity, speed and sca
 
 <BaseLayout title={title} description={description}>
   <main class="site-shell">
-    <div class="hero-background" aria-hidden="true"></div>
     <Header />
     <Hero />
     <Services />
@@ -30,3 +29,48 @@ const description = 'Modern software systems designed for clarity, speed and sca
   </main>
   <ScrollToTop />
 </BaseLayout>
+
+<script is:inline>
+  (() => {
+    const shell = document.querySelector('.site-shell');
+    const sections = shell?.querySelectorAll(':scope > .section, :scope > .cta');
+
+    if (!shell || !sections?.length) {
+      return;
+    }
+
+    shell.classList.add('is-reveal-ready');
+
+    const revealSection = (section) => {
+      section.classList.add('is-visible');
+    };
+
+    if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      sections.forEach(revealSection);
+      return;
+    }
+
+    sections.forEach((section) => {
+      section.classList.add('scroll-reveal');
+    });
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            return;
+          }
+
+          revealSection(entry.target);
+          observer.unobserve(entry.target);
+        });
+      },
+      {
+        rootMargin: '0px 0px -18% 0px',
+        threshold: 0.18,
+      },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+  })();
+</script>

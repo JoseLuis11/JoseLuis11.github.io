@@ -56,20 +56,6 @@ select {
   margin: 0;
 }
 
-.hero-background {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  height: 100svh;
-  background:
-    radial-gradient(circle at 78% 5%, rgba($color-orange, 0.16), transparent 28rem),
-    radial-gradient(circle at 78% 30%, rgba($color-violet, 0.18), transparent 34rem),
-    radial-gradient(circle at 15% 88%, rgba($color-blue, 0.12), transparent 30rem),
-    $color-midnight-950;
-  pointer-events: none;
-}
-
 .section-shell {
   width: min(100% - clamp($space-8, 8vw, 10rem), $content-width);
   margin-inline: auto;
@@ -78,6 +64,64 @@ select {
 .section {
   padding-block: clamp($space-16, 8vw, $space-24);
   border-top: 1px solid $color-border;
+}
+
+.is-reveal-ready .scroll-reveal {
+  opacity: 0;
+  transform: translateY(2rem);
+  transition:
+    opacity 620ms ease,
+    transform 620ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.is-reveal-ready .scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.is-reveal-ready .scroll-reveal > * {
+  opacity: 0;
+  transform: translateY(1.25rem);
+  transition:
+    opacity 620ms ease,
+    transform 620ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.is-reveal-ready .scroll-reveal.is-visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.is-reveal-ready .scroll-reveal.is-visible > *:nth-child(2) {
+  transition-delay: 90ms;
+}
+
+.is-reveal-ready .scroll-reveal.is-visible > *:nth-child(3) {
+  transition-delay: 180ms;
+}
+
+.is-reveal-ready .scroll-reveal.is-visible > *:nth-child(4) {
+  transition-delay: 270ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .is-reveal-ready .scroll-reveal,
+  .is-reveal-ready .scroll-reveal > * {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+@include mq-mobile {
+  .is-reveal-ready .scroll-reveal,
+  .is-reveal-ready .scroll-reveal > * {
+    transition-duration: 420ms;
+  }
+
+  .is-reveal-ready .scroll-reveal.is-visible > * {
+    transition-delay: 0ms;
+  }
 }
 
 .eyebrow {
