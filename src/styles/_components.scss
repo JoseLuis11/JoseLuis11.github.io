@@ -258,9 +258,9 @@
     z-index: -1;
     width: 100vw;
     background:
-      radial-gradient(circle at 78% 5%, rgba($color-orange, 0.16), transparent 28rem),
-      radial-gradient(circle at 78% 30%, rgba($color-violet, 0.18), transparent 34rem),
-      radial-gradient(circle at 15% 88%, rgba($color-blue, 0.12), transparent 30rem),
+      radial-gradient(circle at 78% 5%, rgba($color-orange, 0.06), transparent 28rem),
+      radial-gradient(circle at 78% 30%, rgba($color-violet, 0.08), transparent 34rem),
+      radial-gradient(circle at 15% 88%, rgba($color-blue, 0.05), transparent 30rem),
       $color-midnight-950;
     content: "";
     transform: translateX(-50%);
