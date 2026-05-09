@@ -106,7 +106,7 @@ export const solutions: Solution[] = [
 export const standards: Standard[] = [
   {
     title: 'Clear communication',
-    description: 'Transparent collaboration from planning to delivery.',
+    description: 'Transparent collaboration, organized delivery and invoicing available for businesses that require it.',
   },
   {
     title: 'Reliable systems',
@@ -125,17 +125,17 @@ export const standards: Standard[] = [
 export const valuePoints: ValuePoint[] = [
   {
     title: 'Enterprise Experience',
-    description: 'Led by engineering experience from complex business systems and large organizations.',
+    description: '    Built on years of working with complex systems and real operations.',
     icon: 'atom',
   },
   {
-    title: 'Agency Execution',
-    description: 'A focused delivery model built for product launches, integrations and operational systems.',
+    title: 'Focused Execution',
+    description: '    We deliver what matters without unnecessary complexity.',
     icon: 'scale',
   },
   {
     title: 'Built for Trust',
-    description: 'Honest scope, careful implementation and software that can keep growing after launch.',
+    description: '    Clear scope, honest work and long-term reliability.',
     icon: 'impact',
   },
 ];
