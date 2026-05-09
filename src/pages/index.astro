@@ -5,14 +5,15 @@ import Footer from '@components/Footer.astro';
 import Header from '@components/Header.astro';
 import Hero from '@components/Hero.astro';
 import Process from '@components/Process.astro';
-import Projects from '@components/Projects.astro';
 import Services from '@components/Services.astro';
+import Solutions from '@components/Solutions.astro';
 import ScrollToTop from '@components/ScrollToTop.astro';
+import Standards from '@components/Standards.astro';
 import WhySolwave from '@components/WhySolwave.astro';
 import BaseLayout from '@layouts/BaseLayout.astro';
 
 const title = 'Solwave | Build. Flow. Scale.';
-const description = 'Modern software systems designed for clarity, speed and scale.';
+const description = 'Software development agency building reliable web applications, backend systems and digital products.';
 ---
 
 <BaseLayout title={title} description={description}>
@@ -20,9 +21,10 @@ const description = 'Modern software systems designed for clarity, speed and sca
     <Header />
     <Hero />
     <Services />
+    <Solutions />
     <Process />
+    <Standards />
     <Capabilities />
-    <Projects />
     <WhySolwave />
     <CallToAction />
     <Footer />

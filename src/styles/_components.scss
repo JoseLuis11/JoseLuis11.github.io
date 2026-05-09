@@ -412,7 +412,8 @@
 }
 
 .service-card,
-.project-card,
+.solution-card,
+.standard-card,
 .tech-card {
   @include panel-border;
 
@@ -519,17 +520,17 @@
   font-weight: 900;
 }
 
-.card-grid--projects {
+.card-grid--solutions {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-.project-card {
+.solution-card {
   overflow: hidden;
   border-radius: $radius-md;
   padding: $space-4;
 }
 
-.project-card__media {
+.solution-card__media {
   position: relative;
   min-height: 7.5rem;
   overflow: hidden;
@@ -565,15 +566,15 @@
   }
 }
 
-.project-card__media--light {
+.solution-card__media--light {
   background: linear-gradient(135deg, rgba($color-text, 0.9), rgba($color-faint, 0.55));
 }
 
-.project-card__media--warm {
+.solution-card__media--warm {
   background: linear-gradient(135deg, rgba($color-orange, 0.95), rgba($color-midnight-800, 0.95));
 }
 
-.project-card__panel {
+.solution-card__panel {
   position: absolute;
   top: $space-5;
   right: $space-5;
@@ -584,7 +585,7 @@
   background: rgba($color-midnight-950, 0.52);
 }
 
-.project-card__content {
+.solution-card__content {
   padding: $space-5 $space-1 $space-2;
 
   h3 {
@@ -598,6 +599,38 @@
     font-size: 0.84rem;
     line-height: 1.5;
   }
+}
+
+.standards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: $space-6;
+  margin-top: clamp($space-10, 5vw, $space-16);
+}
+
+.standard-card {
+  min-height: 13rem;
+  border-radius: $radius-md;
+  padding: $space-6;
+
+  h3 {
+    margin: $space-8 0 $space-3;
+    font-size: 1rem;
+  }
+
+  p {
+    margin: 0;
+    color: $color-muted;
+    font-size: 0.84rem;
+    line-height: 1.55;
+  }
+}
+
+.standard-card__number {
+  color: $color-cyan;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
 }
 
 .tag {
@@ -970,7 +1003,8 @@
   }
 
   .card-grid--services,
-  .card-grid--projects,
+  .card-grid--solutions,
+  .standards-grid,
   .why__points {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1017,6 +1051,37 @@
     min-height: 2.8rem;
   }
 
+  .site-header .contact-choice__menu {
+    width: min(18.5rem, calc(100vw - #{$space-6}));
+    padding: $space-2;
+
+    > p {
+      margin: $space-1 $space-2 $space-2;
+      font-size: 0.72rem;
+    }
+  }
+
+  .site-header .contact-choice__option {
+    grid-template-columns: 2rem minmax(0, 1fr);
+    gap: $space-3;
+    min-height: 3.35rem;
+    padding: $space-2 $space-3;
+
+    strong {
+      font-size: 0.86rem;
+    }
+
+    small {
+      font-size: 0.74rem;
+    }
+  }
+
+  .site-header .contact-choice__icon {
+    width: 2rem;
+    height: 2rem;
+    font-size: 0.72rem;
+  }
+
   .hero {
     grid-template-columns: 1fr;
     gap: $space-16;
@@ -1050,8 +1115,9 @@
   }
 
   .card-grid--services,
-  .card-grid--projects,
+  .card-grid--solutions,
   .process-list,
+  .standards-grid,
   .tech-list,
   .why__points,
   .site-footer__nav {
