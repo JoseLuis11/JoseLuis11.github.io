@@ -413,8 +413,7 @@
 
 .service-card,
 .solution-card,
-.standard-card,
-.tech-card {
+.standard-card {
   @include panel-border;
 
   background: $color-panel;
@@ -492,32 +491,6 @@
 
 .process-list__item:last-child .process-list__number {
   background: linear-gradient(135deg, $color-violet, $color-orange);
-}
-
-.tech-list {
-  display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: $space-5;
-  margin: clamp($space-10, 5vw, $space-16) 0 0;
-  padding: 0;
-  list-style: none;
-}
-
-.tech-card {
-  display: grid;
-  min-height: 7rem;
-  place-items: center;
-  gap: $space-3;
-  border-radius: $radius-md;
-  color: $color-text;
-  font-size: 0.9rem;
-  font-weight: 800;
-}
-
-.tech-card__icon {
-  color: $color-cyan;
-  font-size: 1.25rem;
-  font-weight: 900;
 }
 
 .card-grid--solutions {
@@ -1017,7 +990,6 @@
     }
   }
 
-  .tech-list,
   .site-footer__nav {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -1118,14 +1090,9 @@
   .card-grid--solutions,
   .process-list,
   .standards-grid,
-  .tech-list,
   .why__points,
   .site-footer__nav {
     grid-template-columns: 1fr;
-  }
-
-  .tech-list {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .cta {

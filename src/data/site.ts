@@ -14,11 +14,6 @@ export type ProcessStep = {
   description: string;
 };
 
-export type Technology = {
-  name: string;
-  shortName: string;
-};
-
 export type Solution = {
   title: string;
   category: string;
@@ -87,15 +82,6 @@ export const processSteps: ProcessStep[] = [
   },
 ];
 
-export const technologies: Technology[] = [
-  { name: 'React', shortName: 'Re' },
-  { name: 'Next.js', shortName: 'Nx' },
-  { name: 'TypeScript', shortName: 'Ts' },
-  { name: 'Node.js', shortName: 'Nd' },
-  { name: 'PostgreSQL', shortName: 'Pg' },
-  { name: 'AWS', shortName: 'Aw' },
-];
-
 export const solutions: Solution[] = [
   {
     title: 'Operational Systems',
@@ -119,20 +105,20 @@ export const solutions: Solution[] = [
 
 export const standards: Standard[] = [
   {
-    title: 'Architecture First',
-    description: 'We design systems around maintainability, reliability and future change from the start.',
+    title: 'Clear communication',
+    description: 'Transparent collaboration from planning to delivery.',
   },
   {
-    title: 'Transparent Delivery',
-    description: 'Clear scope, visible progress and direct communication throughout the engagement.',
+    title: 'Reliable systems',
+    description: 'Software designed to stay organized, maintainable and dependable.',
   },
   {
-    title: 'Production Discipline',
-    description: 'Version control, deployment workflows, documentation and practical quality checks.',
+    title: 'Long-term support',
+    description: 'Ongoing improvements, updates and technical support as your business evolves.',
   },
   {
-    title: 'Business Alignment',
-    description: 'Technical decisions stay connected to launch goals, operations and measurable value.',
+    title: 'Practical solutions',
+    description: 'We focus on systems that solve real operational needs without unnecessary complexity.',
   },
 ];
 
