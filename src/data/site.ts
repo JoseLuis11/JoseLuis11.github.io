@@ -6,7 +6,7 @@ export type NavItem = {
 export type Service = {
   title: string;
   description: string;
-  icon: 'window' | 'api' | 'spark' | 'cloud';
+  icon: 'browser' | 'operations' | 'workflow' | 'support';
 };
 
 export type ProcessStep = {
@@ -29,7 +29,7 @@ export type Standard = {
 export type ValuePoint = {
   title: string;
   description: string;
-  icon: 'atom' | 'scale' | 'impact';
+  icon: 'experience' | 'focus' | 'trust';
 };
 
 export const navItems: NavItem[] = [
@@ -44,22 +44,22 @@ export const services: Service[] = [
   {
     title: 'Business websites',
     description: '    Modern websites and landing pages designed to present your business clearly and generate new clients.',
-    icon: 'window',
+    icon: 'browser',
   },
   {
     title: 'Custom software',
     description: 'Systems tailored to improve workflows, organize operations and support the way your business runs.',
-    icon: 'api',
+    icon: 'operations',
   },
   {
     title: 'Automation & communication',
     description: 'Automations, WhatsApp bots and connected workflows that reduce manual work and improve response times.',
-    icon: 'spark',
+    icon: 'workflow',
   },
   {
     title: 'Technical support & deployment',
     description: 'Reliable deployment, maintenance and technical support for long-term stability.',
-    icon: 'cloud',
+    icon: 'support',
   },
 ];
 
@@ -126,16 +126,16 @@ export const valuePoints: ValuePoint[] = [
   {
     title: 'Enterprise Experience',
     description: '    Built on years of working with complex systems and real operations.',
-    icon: 'atom',
+    icon: 'experience',
   },
   {
     title: 'Focused Execution',
     description: '    We deliver what matters without unnecessary complexity.',
-    icon: 'scale',
+    icon: 'focus',
   },
   {
     title: 'Built for Trust',
     description: '    Clear scope, honest work and long-term reliability.',
-    icon: 'impact',
+    icon: 'trust',
   },
 ];
