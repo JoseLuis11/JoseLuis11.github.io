@@ -1,0 +1,37 @@
+---
+import Icon from './Icon.astro';
+import { valuePoints } from '@data/site';
+---
+
+<section class="section section-shell why" id="about" aria-labelledby="why-title">
+  <div class="why__content">
+    <p class="eyebrow">Why Solwave</p>
+    <h2 id="why-title">
+      Real engineering.
+      <span>Practical solutions.</span>
+    </h2>
+    <p>
+        Solwave combines enterprise-level engineering experience with a practical approach focused on real business needs.
+    </p>
+  </div>
+
+  <div class="why__visual" aria-hidden="true">
+    <div class="brand-mark"></div>
+  </div>
+
+  <div class="why__points">
+    {
+      valuePoints.map((point) => (
+        <article class="value-point">
+          <div class="icon-tile">
+            <Icon name={point.icon} />
+          </div>
+          <div>
+            <h3>{point.title}</h3>
+            <p>{point.description}</p>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</section>

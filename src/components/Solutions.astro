@@ -1,0 +1,26 @@
+---
+import SectionHeading from './SectionHeading.astro';
+import SolutionVisual from './SolutionVisual.astro';
+import { solutions } from '@data/site';
+---
+
+<section class="section section-shell" id="solutions" aria-labelledby="solutions-title">
+  <SectionHeading eyebrow="Solutions we deliver" title="Solutions built for real operations." />
+
+  <div class="card-grid card-grid--solutions">
+    {
+      solutions.map((solution) => (
+        <article class="solution-card">
+          <div class={`solution-card__media solution-card__media--${solution.variant}`} aria-hidden="true">
+            <SolutionVisual variant={solution.variant} />
+          </div>
+          <div class="solution-card__content">
+            <h3>{solution.title}</h3>
+            <span class="tag">{solution.category}</span>
+            <p>{solution.description}</p>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</section>

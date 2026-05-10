@@ -1,0 +1,26 @@
+---
+import Icon from './Icon.astro';
+import SectionHeading from './SectionHeading.astro';
+import { services } from '@data/site';
+---
+
+<section class="section section-shell" id="services" aria-labelledby="services-title">
+  <SectionHeading
+    eyebrow="What we do"
+    title="What we build for your business."
+  />
+
+  <div class="card-grid card-grid--services">
+    {
+      services.map((service) => (
+        <article class="service-card">
+          <div class="icon-tile">
+            <Icon name={service.icon} />
+          </div>
+          <h3>{service.title}</h3>
+          <p>{service.description}</p>
+        </article>
+      ))
+    }
+  </div>
+</section>

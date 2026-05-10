@@ -1,0 +1,27 @@
+@use "tokens" as *;
+
+@mixin container {
+  width: min(100%, $content-width);
+  margin-inline: auto;
+}
+
+@mixin panel-border($opacity: 1) {
+  border: 1px solid rgba(148, 163, 184, 0.18 * $opacity);
+}
+
+@mixin focus-ring {
+  outline: 3px solid rgba(71, 194, 255, 0.45);
+  outline-offset: 4px;
+}
+
+@mixin mq-tablet {
+  @media (max-width: $breakpoint-tablet) {
+    @content;
+  }
+}
+
+@mixin mq-mobile {
+  @media (max-width: $breakpoint-mobile) {
+    @content;
+  }
+}

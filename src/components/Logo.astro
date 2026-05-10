@@ -1,0 +1,13 @@
+---
+type Props = {
+  size?: 'sm' | 'md' | 'lg';
+  showText?: boolean;
+};
+
+const { size = 'md', showText = true } = Astro.props;
+---
+
+<a class={`logo logo--${size}`} href="#home" aria-label="Solwave home">
+  <span class="logo__mark brand-mark" aria-hidden="true"></span>
+  {showText && <span class="logo__text">SOLWAVE</span>}
+</a>
