@@ -87,6 +87,15 @@ const mobileMenuId = 'mobile-navigation-menu';
       link.addEventListener('click', () => closeMenu());
     });
 
+    header.querySelector('.site-header__link[href="#home"]')?.addEventListener('click', (event) => {
+      event.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+      });
+      history.replaceState(null, '', `${window.location.pathname}${window.location.search}`);
+    });
+
     header.querySelector('[data-contact-choice-trigger]')?.addEventListener('click', () => {
       closeMenu();
     });
