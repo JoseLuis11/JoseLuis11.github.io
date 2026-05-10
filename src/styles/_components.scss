@@ -505,38 +505,11 @@
 
 .solution-card__media {
   position: relative;
-  min-height: 7.5rem;
+  aspect-ratio: 3.1 / 1;
+  min-height: 7.25rem;
   overflow: hidden;
   border-radius: $radius-sm;
   background: linear-gradient(135deg, rgba($color-blue, 0.9), rgba($color-violet, 0.9));
-
-  span {
-    position: absolute;
-    left: $space-6;
-    height: 0.28rem;
-    border-radius: $radius-pill;
-    background: rgba($color-text, 0.24);
-  }
-
-  span:nth-child(1) {
-    top: $space-6;
-    width: 58%;
-  }
-
-  span:nth-child(2) {
-    top: $space-10;
-    width: 48%;
-  }
-
-  span:nth-child(3) {
-    top: $space-14;
-    width: 66%;
-  }
-
-  span:nth-child(4) {
-    top: $space-16 + $space-2;
-    width: 40%;
-  }
 }
 
 .solution-card__media--light {
@@ -547,15 +520,159 @@
   background: linear-gradient(135deg, rgba($color-orange, 0.95), rgba($color-midnight-800, 0.95));
 }
 
-.solution-card__panel {
+.solution-card__visual {
   position: absolute;
-  top: $space-5;
-  right: $space-5;
-  width: 4.4rem;
-  height: 4.8rem;
-  border: 1px solid rgba($color-text, 0.12);
-  border-radius: $radius-sm;
-  background: rgba($color-midnight-950, 0.52);
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.solution-card__glow {
+  opacity: 0.14;
+}
+
+.solution-card__glow--cyan {
+  fill: #5de1ff;
+}
+
+.solution-card__glow--violet {
+  fill: #7c3cff;
+}
+
+.solution-card__screen,
+.solution-card__node,
+.solution-card__browser,
+.solution-card__phone {
+  filter: drop-shadow(0 1rem 1.1rem rgba($color-midnight-950, 0.26));
+}
+
+.solution-card__screen--dark {
+  fill: rgba($color-midnight-950, 0.92);
+}
+
+.solution-card__screen--light,
+.solution-card__browser,
+.solution-card__node {
+  fill: rgba($color-text, 0.96);
+}
+
+.solution-card__screen--charcoal,
+.solution-card__phone {
+  fill: #111a2d;
+}
+
+.solution-card__browser-bar {
+  fill: #121a2c;
+}
+
+.solution-card__phone-screen {
+  fill: #263550;
+}
+
+.solution-card__tile--light {
+  fill: rgba($color-text, 0.9);
+}
+
+.solution-card__tile--blue {
+  fill: #112b63;
+}
+
+.solution-card__tile--navy {
+  fill: #0c1d44;
+}
+
+.solution-card__tile--pale {
+  fill: #e9f0ff;
+}
+
+.solution-card__line--strong {
+  fill: #1a49a8;
+}
+
+.solution-card__line--soft {
+  fill: rgba(#1a49a8, 0.7);
+}
+
+.solution-card__line--ink,
+.solution-card__line--heading {
+  fill: #2b497d;
+}
+
+.solution-card__line--heading {
+  fill: #13203a;
+}
+
+.solution-card__line--muted {
+  fill: #a8b7d2;
+}
+
+.solution-card__line--pale {
+  fill: #d7e2f9;
+}
+
+.solution-card__line--bright {
+  fill: #e6edf9;
+}
+
+.solution-card__line--slate {
+  fill: #7184a8;
+}
+
+.solution-card__accent--cyan {
+  fill: #38c6ff;
+}
+
+.solution-card__accent--orange {
+  fill: #ff8a3d;
+}
+
+.solution-card__accent--yellow {
+  fill: #ffd166;
+}
+
+.solution-card__accent--green {
+  fill: #55e6a5;
+}
+
+.solution-card__chart,
+.solution-card__connector,
+.solution-card__connector-arrow,
+.solution-card__ghost-lines {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.solution-card__chart {
+  stroke: #55d9ff;
+  stroke-width: 7;
+}
+
+.solution-card__connector {
+  stroke: #38c6ff;
+  stroke-width: 8;
+}
+
+.solution-card__connector-arrow {
+  stroke: #38c6ff;
+  stroke-width: 7;
+}
+
+.solution-card__ghost-lines {
+  stroke: rgba($color-text, 0.28);
+  stroke-width: 3;
+}
+
+.solution-card__pill {
+  fill: #213b78;
+}
+
+.solution-card__warm-wave {
+  fill: rgba(#071021, 0.32);
+}
+
+.solution-card__button-shape {
+  fill: $color-blue;
 }
 
 .solution-card__content {

@@ -1,5 +1,6 @@
 ---
 import SectionHeading from './SectionHeading.astro';
+import SolutionVisual from './SolutionVisual.astro';
 import { solutions } from '@data/site';
 ---
 
@@ -11,11 +12,7 @@ import { solutions } from '@data/site';
       solutions.map((solution) => (
         <article class="solution-card">
           <div class={`solution-card__media solution-card__media--${solution.variant}`} aria-hidden="true">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <div class="solution-card__panel"></div>
+            <SolutionVisual variant={solution.variant} />
           </div>
           <div class="solution-card__content">
             <h3>{solution.title}</h3>
@@ -26,8 +23,4 @@ import { solutions } from '@data/site';
       ))
     }
   </div>
-
-  <a class="button button--secondary section-action" href="mailto:hello@solwave.dev">
-    Discuss a Project
-  </a>
 </section>
