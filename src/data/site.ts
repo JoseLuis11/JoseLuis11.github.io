@@ -138,7 +138,7 @@ export const siteContent: Record<Locale, SiteContent> = {
       mainMenuAriaLabel: 'Menú principal',
       mobileMenuAriaLabel: 'Menú móvil',
       menuLabel: 'Menú',
-      contactLabel: 'Hablemos',
+      contactLabel: 'Contactar',
     },
     hero: {
       eyebrow: 'SOLUCIONES DIGITALES PARA NEGOCIOS MODERNOS',
