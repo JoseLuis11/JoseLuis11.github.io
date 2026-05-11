@@ -175,7 +175,7 @@ export const siteContent: Record<Locale, SiteContent> = {
       title: 'Soluciones construidas para operaciones reales.',
       items: [
         {
-          title: 'Sistemas Operativos',
+          title: 'Sistemas de Gestión Operativa',
           category: 'Operaciones de negocio',
           description: 'Software personalizado diseñado alrededor de la forma en que trabaja tu negocio. Puede incluir flujos de citas, tableros internos, seguimiento de solicitudes o herramientas de gestión de clientes.',
           variant: 'blue',
