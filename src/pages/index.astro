@@ -1,76 +1,42 @@
 ---
-import CallToAction from '@components/CallToAction.astro';
-import Footer from '@components/Footer.astro';
-import Header from '@components/Header.astro';
-import Hero from '@components/Hero.astro';
-import Process from '@components/Process.astro';
-import Services from '@components/Services.astro';
-import Solutions from '@components/Solutions.astro';
-import ScrollToTop from '@components/ScrollToTop.astro';
-import Standards from '@components/Standards.astro';
-import WhySolwave from '@components/WhySolwave.astro';
-import BaseLayout from '@layouts/BaseLayout.astro';
+import { getContent } from '@data/site';
 
-const title = 'Solwave | Build. Flow. Scale.';
-const description = 'Websites, custom systems and automations that help businesses organize operations, save time and grow.';
+const content = getContent('es');
+const productionUrl = 'https://www.solwave.dev';
+const canonicalUrl = new URL('/es/', productionUrl).toString();
+const socialImageUrl = new URL('/og-image.png', productionUrl).toString();
 ---
 
-<BaseLayout title={title} description={description}>
-  <main class="site-shell">
-    <Header />
-    <Hero />
-    <Services />
-    <Solutions />
-    <Process />
-    <Standards />
-    <WhySolwave />
-    <CallToAction />
-    <Footer />
-  </main>
-  <ScrollToTop />
-</BaseLayout>
-
-<script is:inline>
-  (() => {
-    const shell = document.querySelector('.site-shell');
-    const sections = shell?.querySelectorAll(':scope > .section, :scope > .cta');
-
-    if (!shell || !sections?.length) {
-      return;
-    }
-
-    shell.classList.add('is-reveal-ready');
-
-    const revealSection = (section) => {
-      section.classList.add('is-visible');
-    };
-
-    if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      sections.forEach(revealSection);
-      return;
-    }
-
-    sections.forEach((section) => {
-      section.classList.add('scroll-reveal');
-    });
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) {
-            return;
-          }
-
-          revealSection(entry.target);
-          observer.unobserve(entry.target);
-        });
-      },
-      {
-        rootMargin: '0px 0px -18% 0px',
-        threshold: 0.18,
-      },
-    );
-
-    sections.forEach((section) => observer.observe(section));
-  })();
-</script>
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="refresh" content="0; url=/es/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={content.meta.description} />
+    <meta name="robots" content="noindex" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/solwave-gradient.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/favicon-256.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={content.meta.title} />
+    <meta property="og:description" content={content.meta.description} />
+    <meta property="og:image" content={socialImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalUrl} />
+    <meta name="twitter:title" content={content.meta.title} />
+    <meta name="twitter:description" content={content.meta.description} />
+    <meta name="twitter:image" content={socialImageUrl} />
+    <title>{content.meta.title}</title>
+    <script is:inline>
+      window.location.replace('/es/');
+    </script>
+  </head>
+  <body>
+    <a href="/es/">Continuar a Solwave</a>
+  </body>
+</html>

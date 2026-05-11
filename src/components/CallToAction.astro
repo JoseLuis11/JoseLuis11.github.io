@@ -1,11 +1,18 @@
 ---
 import ContactChoice from './ContactChoice.astro';
+import type { SiteContent } from '@data/site';
+
+type Props = {
+  content: SiteContent;
+};
+
+const { content } = Astro.props;
 ---
 
 <section class="cta section-shell" id="contact" aria-labelledby="cta-title">
   <div>
-    <h2 id="cta-title">Ready to improve your business operations?</h2>
-    <p>Tell us what your business needs, and we will help you find the right solution.</p>
+    <h2 id="cta-title">{content.cta.title}</h2>
+    <p>{content.cta.description}</p>
   </div>
-  <ContactChoice label="Start a Conversation" />
+  <ContactChoice label={content.cta.contactLabel} content={content.contact} />
 </section>

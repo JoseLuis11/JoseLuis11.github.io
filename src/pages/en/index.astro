@@ -1,0 +1,76 @@
+---
+import CallToAction from '@components/CallToAction.astro';
+import Footer from '@components/Footer.astro';
+import Header from '@components/Header.astro';
+import Hero from '@components/Hero.astro';
+import Process from '@components/Process.astro';
+import Services from '@components/Services.astro';
+import Solutions from '@components/Solutions.astro';
+import ScrollToTop from '@components/ScrollToTop.astro';
+import Standards from '@components/Standards.astro';
+import WhySolwave from '@components/WhySolwave.astro';
+import { getContent } from '@data/site';
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const content = getContent('en');
+---
+
+<BaseLayout title={content.meta.title} description={content.meta.description} lang={content.locale}>
+  <main class="site-shell">
+    <Header content={content} />
+    <Hero content={content.hero} />
+    <Services content={content.services} />
+    <Solutions content={content.solutions} />
+    <Process content={content.process} />
+    <Standards content={content.standards} />
+    <WhySolwave content={content.why} />
+    <CallToAction content={content} />
+    <Footer content={content} />
+  </main>
+  <ScrollToTop label={content.scrollToTopLabel} />
+</BaseLayout>
+
+<script is:inline>
+  (() => {
+    const shell = document.querySelector('.site-shell');
+    const sections = shell?.querySelectorAll(':scope > .section, :scope > .cta');
+
+    if (!shell || !sections?.length) {
+      return;
+    }
+
+    shell.classList.add('is-reveal-ready');
+
+    const revealSection = (section) => {
+      section.classList.add('is-visible');
+    };
+
+    if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      sections.forEach(revealSection);
+      return;
+    }
+
+    sections.forEach((section) => {
+      section.classList.add('scroll-reveal');
+    });
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            return;
+          }
+
+          revealSection(entry.target);
+          observer.unobserve(entry.target);
+        });
+      },
+      {
+        rootMargin: '0px 0px -18% 0px',
+        threshold: 0.18,
+      },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+  })();
+</script>

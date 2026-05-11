@@ -976,7 +976,7 @@
 
 .site-footer__nav {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: $space-8;
 
   h2 {
@@ -995,6 +995,11 @@
       color: $color-text;
     }
   }
+}
+
+.site-footer__language-link {
+  color: $color-text;
+  font-weight: 800;
 }
 
 .site-footer__copyright {
@@ -1173,9 +1178,9 @@
 
   .hero {
     grid-template-columns: 1fr;
-    gap: $space-16;
+    gap: $space-4;
     min-height: calc(100svh - 5rem);
-    padding-block: $space-8 $space-10;
+    padding-block: 0 $space-14;
   }
 
   .hero__title {
@@ -1190,7 +1195,7 @@
 
   .hero__visual {
     width: min(13rem, 64vw);
-    min-height: min(21rem, 86vw);
+    min-height: min(13rem, 64vw);
     justify-self: center;
   }
 

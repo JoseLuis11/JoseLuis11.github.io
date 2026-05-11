@@ -1,26 +1,32 @@
 ---
 import '@styles/main.scss';
+import type { Locale } from '@data/site';
+import { localizedHomePaths } from '@data/site';
 
 type Props = {
   title: string;
   description: string;
+  lang: Locale;
   noindex?: boolean;
 };
 
 const productionUrl = 'https://www.solwave.dev';
 const canonicalUrl = new URL(Astro.url.pathname, productionUrl).toString();
 const socialImageUrl = new URL('/og-image.png', productionUrl).toString();
-const { title, description, noindex = false } = Astro.props;
+const { title, description, lang, noindex = false } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     {noindex && <meta name="robots" content="noindex" />}
     <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang="es" href={new URL(localizedHomePaths.es, productionUrl).toString()} />
+    <link rel="alternate" hreflang="en" href={new URL(localizedHomePaths.en, productionUrl).toString()} />
+    <link rel="alternate" hreflang="x-default" href={new URL(localizedHomePaths.es, productionUrl).toString()} />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" href="/solwave-gradient.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/favicon-256.png" />

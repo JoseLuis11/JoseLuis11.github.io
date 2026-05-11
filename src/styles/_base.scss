@@ -61,6 +61,10 @@ select {
   margin-inline: auto;
 }
 
+.section-shell[id] {
+  scroll-margin-top: $space-20;
+}
+
 .section {
   padding-block: clamp($space-16, 8vw, $space-24);
   border-top: 1px solid $color-border;
@@ -257,5 +261,9 @@ select {
 
   .section-shell {
     width: min(100% - $space-8, $content-width);
+  }
+
+  .section-shell[id] {
+    scroll-margin-top: 4.5rem;
   }
 }

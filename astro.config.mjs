@@ -4,5 +4,16 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://www.solwave.dev',
   output: 'static',
-  integrations: [sitemap()],
+  i18n: {
+    defaultLocale: 'es',
+    locales: ['es', 'en'],
+    routing: {
+      prefixDefaultLocale: true,
+    },
+  },
+  integrations: [
+    sitemap({
+      filter: (page) => page !== 'https://www.solwave.dev/',
+    }),
+  ],
 });

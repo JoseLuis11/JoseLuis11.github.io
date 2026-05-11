@@ -1,14 +1,16 @@
 ---
+import type { SiteContent } from '@data/site';
+
 type Props = {
   label: string;
+  content: SiteContent['contact'];
   compact?: boolean;
 };
 
-const { label, compact = false } = Astro.props;
+const { label, content, compact = false } = Astro.props;
 const email = 'hello@solwave.dev';
 const whatsappNumber = '526462239495';
-const whatsappText = 'Hi Solwave, I’m interested in building a software project and would like to learn more.';
-const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappText)}`;
+const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(content.whatsappText)}`;
 const menuId = `contact-choice-${compact ? 'compact' : 'full'}-${label.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
 ---
 
@@ -22,13 +24,13 @@ const menuId = `contact-choice-${compact ? 'compact' : 'full'}-${label.toLowerCa
   >
     {label}
   </button>
-  <div class="contact-choice__menu" id={menuId} aria-label="Choose contact method" data-contact-choice-menu hidden>
-    <p>Choose contact method</p>
+  <div class="contact-choice__menu" id={menuId} aria-label={content.menuLabel} data-contact-choice-menu hidden>
+    <p>{content.menuLabel}</p>
     <a class="contact-choice__option" href={`mailto:${email}`} data-contact-choice-option>
       <span class="contact-choice__icon" aria-hidden="true">@</span>
       <span>
-        <strong>Email us</strong>
-        <small>Send project details</small>
+        <strong>{content.emailTitle}</strong>
+        <small>{content.emailDescription}</small>
       </span>
     </a>
     <a
@@ -40,8 +42,8 @@ const menuId = `contact-choice-${compact ? 'compact' : 'full'}-${label.toLowerCa
     >
       <span class="contact-choice__icon contact-choice__icon--whatsapp" aria-hidden="true">WA</span>
       <span>
-        <strong>WhatsApp</strong>
-        <small>Start a quick chat</small>
+        <strong>{content.whatsappTitle}</strong>
+        <small>{content.whatsappDescription}</small>
       </span>
     </a>
   </div>

@@ -1,19 +1,20 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
+import { getContent } from '@data/site';
 
-const title = 'Page not found | Solwave';
-const description = 'The page you are looking for could not be found.';
+const content = getContent('es');
+const { notFound } = content;
 ---
 
-<BaseLayout title={title} description={description} noindex>
+<BaseLayout title={notFound.title} description={notFound.description} lang={content.locale} noindex>
   <main class="not-found">
-    <a class="logo logo--md" href="/" aria-label="Solwave home">
+    <a class="logo logo--md" href="/es/" aria-label={notFound.homeAriaLabel}>
       <span class="logo__mark brand-mark" aria-hidden="true"></span>
       <span class="logo__text">SOLWAVE</span>
     </a>
-    <p class="eyebrow">404</p>
-    <h1>Page not found</h1>
-    <p>The page may have moved, or the link may be incorrect.</p>
-    <a class="button button--primary" href="/">Back to Home</a>
+    <p class="eyebrow">{notFound.eyebrow}</p>
+    <h1>{notFound.heading}</h1>
+    <p>{notFound.body}</p>
+    <a class="button button--primary" href="/es/">{notFound.homeLabel}</a>
   </main>
 </BaseLayout>

@@ -1,17 +1,22 @@
 ---
 import Logo from './Logo.astro';
 import ContactChoice from './ContactChoice.astro';
-import { navItems } from '@data/site';
+import type { SiteContent } from '@data/site';
 
+type Props = {
+  content: SiteContent;
+};
+
+const { content } = Astro.props;
 const mobileMenuId = 'mobile-navigation-menu';
 ---
 
-<header class="site-header" aria-label="Primary navigation">
-  <Logo size="sm" />
+<header class="site-header" aria-label={content.header.ariaLabel}>
+  <Logo size="sm" ariaLabel={content.header.logoAriaLabel} />
 
-  <nav class="site-header__nav" aria-label="Main menu">
+  <nav class="site-header__nav" aria-label={content.header.mainMenuAriaLabel}>
     {
-      navItems.map((item) => (
+      content.navItems.map((item) => (
         <a class="site-header__link" href={item.href}>
           {item.label}
         </a>
@@ -20,7 +25,7 @@ const mobileMenuId = 'mobile-navigation-menu';
   </nav>
 
   <div class="site-header__actions">
-    <ContactChoice label="Let's Talk" compact />
+    <ContactChoice label={content.header.contactLabel} content={content.contact} compact />
     <button
       class="site-header__menu-button"
       type="button"
@@ -28,14 +33,14 @@ const mobileMenuId = 'mobile-navigation-menu';
       aria-controls={mobileMenuId}
       data-mobile-menu-trigger
     >
-      <span class="site-header__menu-label" data-mobile-menu-label>Menu</span>
+      <span class="site-header__menu-label" data-mobile-menu-label>{content.header.menuLabel}</span>
       <span class="site-header__menu-close" aria-hidden="true">×</span>
     </button>
   </div>
 
-  <nav class="site-header__mobile-nav" id={mobileMenuId} aria-label="Mobile menu" data-mobile-menu hidden>
+  <nav class="site-header__mobile-nav" id={mobileMenuId} aria-label={content.header.mobileMenuAriaLabel} data-mobile-menu hidden>
     {
-      navItems.map((item) => (
+      content.navItems.map((item) => (
         <a class="site-header__mobile-link" href={item.href} data-mobile-menu-link>
           <span>{item.label}</span>
           <span aria-hidden="true">↗</span>
@@ -85,6 +90,15 @@ const mobileMenuId = 'mobile-navigation-menu';
 
     menu.querySelectorAll('[data-mobile-menu-link]').forEach((link) => {
       link.addEventListener('click', () => closeMenu());
+    });
+
+    header.querySelector('.site-header__link[href="#home"]')?.addEventListener('click', (event) => {
+      event.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+      });
+      history.replaceState(null, '', `${window.location.pathname}${window.location.search}`);
     });
 
     header.querySelector('[data-contact-choice-trigger]')?.addEventListener('click', () => {
