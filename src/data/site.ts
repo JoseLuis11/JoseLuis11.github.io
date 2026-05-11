@@ -155,7 +155,7 @@ export const siteContent: Record<Locale, SiteContent> = {
         },
         {
           title: 'Software personalizado',
-          description: 'Sistemas hechos a la medida para mejorar flujos de trabajo, organizar operaciones y apoyar la forma en que tu negocio funciona.',
+          description: 'Sistemas hechos a la medida para mejorar flujos de trabajo, organizar operaciones y adaptarse a la forma en que trabaja tu negocio.',
           icon: 'operations',
         },
         {
@@ -164,20 +164,20 @@ export const siteContent: Record<Locale, SiteContent> = {
           icon: 'workflow',
         },
         {
-          title: 'Soporte técnico y despliegue',
-          description: 'Despliegue, mantenimiento y soporte técnico confiable para estabilidad a largo plazo.',
+          title: 'Implementación y soporte técnico',
+          description: 'Lanzamiento, mantenimiento y soporte técnico confiable para estabilidad a largo plazo.',
           icon: 'support',
         },
       ],
     },
     solutions: {
-      eyebrow: 'Soluciones que entregamos',
+      eyebrow: 'Soluciones que desarrollamos',
       title: 'Soluciones construidas para operaciones reales.',
       items: [
         {
-          title: 'Sistemas Operativos',
+          title: 'Sistemas de Gestión Operativa',
           category: 'Operaciones de negocio',
-          description: 'Software personalizado diseñado alrededor de la forma en que trabaja tu negocio. Puede incluir flujos de citas, tableros internos, seguimiento de solicitudes o herramientas de gestión de clientes.',
+          description: 'Software personalizado diseñado alrededor de la forma en que trabaja tu negocio. Puede incluir agendamiento de citas, paneles internos, seguimiento de solicitudes o herramientas de gestión de clientes.',
           variant: 'blue',
         },
         {
@@ -204,7 +204,7 @@ export const siteContent: Record<Locale, SiteContent> = {
         },
         {
           title: 'Planeamos la solución correcta',
-          description: 'Definimos el sistema más simple que resuelve tu problema.',
+          description: 'Definimos la solución más sencilla que resuelve tu problema.',
         },
         {
           title: 'Construimos y probamos',
@@ -217,16 +217,16 @@ export const siteContent: Record<Locale, SiteContent> = {
       ],
     },
     standards: {
-      eyebrow: 'Por qué los negocios eligen Solwave',
-      title: 'Soluciones confiables construidas para operaciones reales.',
+      eyebrow: 'Por qué elegir Solwave',
+      title: 'Soluciones confiables para operaciones reales.',
       items: [
         {
           title: 'Comunicación clara',
-          description: 'Colaboración transparente, entrega organizada y facturación disponible para negocios que la requieren.',
+          description: 'Colaboración transparente, entrega organizada y facturación disponible cuando tu negocio la necesita.',
         },
         {
           title: 'Sistemas confiables',
-          description: 'Software diseñado para mantenerse organizado, mantenible y estable.',
+          description: 'Software diseñado para mantenerse organizado, estable y fácil de mantener.',
         },
         {
           title: 'Soporte a largo plazo',
@@ -242,20 +242,20 @@ export const siteContent: Record<Locale, SiteContent> = {
       eyebrow: 'Por qué Solwave',
       title: 'Ingeniería real.',
       titleAccent: 'Soluciones prácticas.',
-      description: 'Solwave combina experiencia de ingeniería a nivel empresarial con un enfoque práctico centrado en necesidades reales de negocio.',
+      description: 'Solwave combina experiencia de ingeniería en entornos empresariales con un enfoque práctico centrado en necesidades reales de negocio.',
       points: [
         {
           title: 'Experiencia empresarial',
-          description: 'Construido sobre años de trabajo con sistemas complejos y operaciones reales.',
+          description: 'Años de trabajo con sistemas complejos y operaciones reales.',
           icon: 'experience',
         },
         {
-          title: 'Ejecucion enfocada',
+          title: 'Ejecución enfocada',
           description: 'Entregamos lo que importa sin complejidad innecesaria.',
           icon: 'focus',
         },
         {
-          title: 'Construido para generar confianza',
+          title: 'Trabajo confiable',
           description: 'Alcance claro, trabajo honesto y confiabilidad a largo plazo.',
           icon: 'trust',
         },
@@ -276,7 +276,7 @@ export const siteContent: Record<Locale, SiteContent> = {
     },
     footer: {
       navAriaLabel: 'Navegación del pie de página',
-      description: 'Soluciones digitales confiables construidas para operaciones de negocio modernas.',
+      description: 'Soluciones digitales confiables para negocios modernos.',
       navHeading: 'Navegación',
       servicesHeading: 'Servicios',
       resourcesHeading: 'Recursos',
