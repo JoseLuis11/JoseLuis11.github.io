@@ -1,15 +1,21 @@
 ---
 import SectionHeading from './SectionHeading.astro';
 import SolutionVisual from './SolutionVisual.astro';
-import { solutions } from '@data/site';
+import type { SiteContent } from '@data/site';
+
+type Props = {
+  content: SiteContent['solutions'];
+};
+
+const { content } = Astro.props;
 ---
 
 <section class="section section-shell" id="solutions" aria-labelledby="solutions-title">
-  <SectionHeading eyebrow="Solutions we deliver" title="Solutions built for real operations." />
+  <SectionHeading eyebrow={content.eyebrow} title={content.title} />
 
   <div class="card-grid card-grid--solutions">
     {
-      solutions.map((solution) => (
+      content.items.map((solution) => (
         <article class="solution-card">
           <div class={`solution-card__media solution-card__media--${solution.variant}`} aria-hidden="true">
             <SolutionVisual variant={solution.variant} />

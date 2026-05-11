@@ -1,17 +1,23 @@
 ---
 import Icon from './Icon.astro';
-import { valuePoints } from '@data/site';
+import type { SiteContent } from '@data/site';
+
+type Props = {
+  content: SiteContent['why'];
+};
+
+const { content } = Astro.props;
 ---
 
 <section class="section section-shell why" id="about" aria-labelledby="why-title">
   <div class="why__content">
-    <p class="eyebrow">Why Solwave</p>
+    <p class="eyebrow">{content.eyebrow}</p>
     <h2 id="why-title">
-      Real engineering.
-      <span>Practical solutions.</span>
+      {content.title}
+      <span>{content.titleAccent}</span>
     </h2>
     <p>
-        Solwave combines enterprise-level engineering experience with a practical approach focused on real business needs.
+      {content.description}
     </p>
   </div>
 
@@ -21,7 +27,7 @@ import { valuePoints } from '@data/site';
 
   <div class="why__points">
     {
-      valuePoints.map((point) => (
+      content.points.map((point) => (
         <article class="value-point">
           <div class="icon-tile">
             <Icon name={point.icon} />

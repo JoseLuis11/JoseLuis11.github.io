@@ -1,11 +1,18 @@
 ---
+import type { SiteContent } from '@data/site';
+
+type Props = {
+  label: SiteContent['scrollToTopLabel'];
+};
+
+const { label } = Astro.props;
 const revealOffset = 640;
 ---
 
 <button
   class="scroll-to-top"
   type="button"
-  aria-label="Scroll to top"
+  aria-label={label}
   aria-hidden="true"
   data-scroll-to-top
   data-reveal-offset={revealOffset}

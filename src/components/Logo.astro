@@ -2,12 +2,14 @@
 type Props = {
   size?: 'sm' | 'md' | 'lg';
   showText?: boolean;
+  href?: string;
+  ariaLabel?: string;
 };
 
-const { size = 'md', showText = true } = Astro.props;
+const { size = 'md', showText = true, href = '#home', ariaLabel = 'Solwave home' } = Astro.props;
 ---
 
-<a class={`logo logo--${size}`} href="#home" aria-label="Solwave home">
+<a class={`logo logo--${size}`} href={href} aria-label={ariaLabel}>
   <span class="logo__mark brand-mark" aria-hidden="true"></span>
   {showText && <span class="logo__text">SOLWAVE</span>}
 </a>

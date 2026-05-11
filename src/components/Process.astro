@@ -1,14 +1,20 @@
 ---
 import SectionHeading from './SectionHeading.astro';
-import { processSteps } from '@data/site';
+import type { SiteContent } from '@data/site';
+
+type Props = {
+  content: SiteContent['process'];
+};
+
+const { content } = Astro.props;
 ---
 
 <section class="section section-shell" aria-labelledby="process-title">
-  <SectionHeading eyebrow="How we work" title="A clear delivery path from idea to launch." />
+  <SectionHeading eyebrow={content.eyebrow} title={content.title} />
 
   <ol class="process-list">
     {
-      processSteps.map((step, index) => (
+      content.steps.map((step, index) => (
         <li class="process-list__item">
           <span class="process-list__number">{index + 1}</span>
           <h3>{step.title}</h3>

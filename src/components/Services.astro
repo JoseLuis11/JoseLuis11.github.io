@@ -1,18 +1,24 @@
 ---
 import Icon from './Icon.astro';
 import SectionHeading from './SectionHeading.astro';
-import { services } from '@data/site';
+import type { SiteContent } from '@data/site';
+
+type Props = {
+  content: SiteContent['services'];
+};
+
+const { content } = Astro.props;
 ---
 
 <section class="section section-shell" id="services" aria-labelledby="services-title">
   <SectionHeading
-    eyebrow="What we do"
-    title="What we build for your business."
+    eyebrow={content.eyebrow}
+    title={content.title}
   />
 
   <div class="card-grid card-grid--services">
     {
-      services.map((service) => (
+      content.items.map((service) => (
         <article class="service-card">
           <div class="icon-tile">
             <Icon name={service.icon} />
