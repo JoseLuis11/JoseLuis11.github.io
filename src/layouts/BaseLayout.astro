@@ -12,8 +12,8 @@ type Props = {
 
 const productionUrl = 'https://www.solwave.dev';
 const canonicalUrl = new URL(Astro.url.pathname, productionUrl).toString();
-const socialImageUrl = new URL('/og-image.png', productionUrl).toString();
 const { title, description, lang, noindex = false } = Astro.props;
+const socialImageUrl = new URL(`/og-image-${lang}.png`, productionUrl).toString();
 ---
 
 <!doctype html>
