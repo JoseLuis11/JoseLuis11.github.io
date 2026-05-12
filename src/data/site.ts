@@ -123,7 +123,7 @@ export const siteContent: Record<Locale, SiteContent> = {
     locale: 'es',
     meta: {
       title: 'Solwave | Build. Flow. Scale.',
-      description: 'Sitios web, sistemas personalizados y automatizaciones que ayudan a los negocios a organizar sus operaciones, ahorrar tiempo y crecer.',
+      description: 'Sitios web, sistemas y automatizaciones para negocios modernos. Cotiza tu proyecto y recibe una propuesta clara.',
     },
     navItems: [
       { label: 'Inicio', href: '#home' },
@@ -299,7 +299,7 @@ export const siteContent: Record<Locale, SiteContent> = {
     locale: 'en',
     meta: {
       title: 'Solwave | Build. Flow. Scale.',
-      description: 'Websites, custom systems and automations that help businesses organize operations, save time and grow.',
+      description: 'Websites, custom systems and automations for modern businesses. Get a quote and receive a clear proposal.',
     },
     navItems: [
       { label: 'Home', href: '#home' },
