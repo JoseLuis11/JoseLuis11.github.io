@@ -264,7 +264,7 @@ export const siteContent: Record<Locale, SiteContent> = {
     cta: {
       title: '¿Listo para mejorar las operaciones de tu negocio?',
       description: 'Cuéntanos qué necesita tu negocio y te ayudamos a encontrar la solución correcta.',
-      contactLabel: 'Iniciar conversación',
+      contactLabel: 'Cotizar proyecto',
     },
     contact: {
       menuLabel: 'Elige un método de contacto',
@@ -440,7 +440,7 @@ export const siteContent: Record<Locale, SiteContent> = {
     cta: {
       title: 'Ready to improve your business operations?',
       description: 'Tell us what your business needs, and we will help you find the right solution.',
-      contactLabel: 'Start a Conversation',
+      contactLabel: 'Get a Quote',
     },
     contact: {
       menuLabel: 'Choose contact method',
