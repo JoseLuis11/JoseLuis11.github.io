@@ -14,7 +14,7 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(c
 const menuId = `contact-choice-${compact ? 'compact' : 'full'}-${label.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
 ---
 
-<div class:list={['contact-choice', { 'contact-choice--compact': compact }]}>
+<div class:list={['contact-choice', { 'contact-choice--compact': compact }]} data-contact-source={compact ? 'header' : 'cta'}>
   <button
     class:list={['button', 'button--primary', { 'button--compact': compact }]}
     type="button"
@@ -26,7 +26,7 @@ const menuId = `contact-choice-${compact ? 'compact' : 'full'}-${label.toLowerCa
   </button>
   <div class="contact-choice__menu" id={menuId} aria-label={content.menuLabel} data-contact-choice-menu hidden>
     <p>{content.menuLabel}</p>
-    <a class="contact-choice__option" href={`mailto:${email}`} data-contact-choice-option>
+    <a class="contact-choice__option" href={`mailto:${email}`} data-contact-choice-option data-contact-type="email">
       <span class="contact-choice__icon" aria-hidden="true">@</span>
       <span>
         <strong>{content.emailTitle}</strong>
@@ -39,6 +39,7 @@ const menuId = `contact-choice-${compact ? 'compact' : 'full'}-${label.toLowerCa
       target="_blank"
       rel="noopener noreferrer"
       data-contact-choice-option
+      data-contact-type="whatsapp"
     >
       <span class="contact-choice__icon contact-choice__icon--whatsapp" aria-hidden="true">WA</span>
       <span>
@@ -119,6 +120,9 @@ const menuId = `contact-choice-${compact ? 'compact' : 'full'}-${label.toLowerCa
           choice.classList.add('is-open');
           trigger.setAttribute('aria-expanded', 'true');
           menu.removeAttribute('hidden');
+          window.posthog?.capture('contact_menu_opened', {
+            source: choice.dataset.contactSource || 'unknown',
+          });
         } else {
           closeChoice(choice);
         }
@@ -130,6 +134,16 @@ const menuId = `contact-choice-${compact ? 'compact' : 'full'}-${label.toLowerCa
 
       if (option) {
         const choice = option.closest('.contact-choice');
+        const contactType = option.dataset.contactType;
+        if (contactType === 'email') {
+          window.posthog?.capture('contact_email_clicked', {
+            source: choice.dataset.contactSource || 'unknown',
+          });
+        } else if (contactType === 'whatsapp') {
+          window.posthog?.capture('contact_whatsapp_clicked', {
+            source: choice.dataset.contactSource || 'unknown',
+          });
+        }
         closeChoice(choice);
         return;
       }

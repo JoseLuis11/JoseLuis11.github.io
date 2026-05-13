@@ -2,6 +2,7 @@
 import '@styles/main.scss';
 import type { Locale } from '@data/site';
 import { localizedHomePaths } from '@data/site';
+import PostHog from '@components/posthog.astro';
 
 type Props = {
   title: string;
@@ -43,6 +44,7 @@ const socialImageUrl = new URL(`/og-image-${lang}.png`, productionUrl).toString(
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={socialImageUrl} />
     <title>{title}</title>
+    <PostHog />
   </head>
   <body>
     <slot />
