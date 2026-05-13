@@ -31,15 +31,40 @@ const whatsappUrl = `https://wa.me/526462239495?text=${encodeURIComponent(conten
     </div>
     <div>
       <h2>{content.footer.resourcesHeading}</h2>
-      <a href="mailto:hello@solwave.dev">hello@solwave.dev</a>
-      <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">WhatsApp</a>
-      <a href="https://www.linkedin.com/in/jose-luis-castro-132626123" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="mailto:hello@solwave.dev" data-footer-link="email">hello@solwave.dev</a>
+      <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" data-footer-link="whatsapp">WhatsApp</a>
+      <a href="https://www.linkedin.com/in/jose-luis-castro-132626123" target="_blank" rel="noopener noreferrer" data-footer-link="linkedin">LinkedIn</a>
     </div>
     <div>
       <h2>{content.footer.languageHeading}</h2>
-      <a class="site-footer__language-link" href={alternateUrl} hreflang={alternateLocale}>{content.footer.switchLabel}</a>
+      <a class="site-footer__language-link" href={alternateUrl} hreflang={alternateLocale} data-footer-link="language" data-target-locale={alternateLocale}>{content.footer.switchLabel}</a>
     </div>
   </nav>
 
   <p class="site-footer__copyright">&copy; {year} Solwave. {content.footer.copyright}</p>
 </footer>
+
+<script is:inline>
+  (() => {
+    const footer = document.querySelector('.site-footer');
+    if (!footer) return;
+
+    footer.addEventListener('click', (event) => {
+      const link = event.target.closest?.('[data-footer-link]');
+      if (!link) return;
+
+      const type = link.dataset.footerLink;
+      if (type === 'email') {
+        window.posthog?.capture('footer_email_clicked');
+      } else if (type === 'whatsapp') {
+        window.posthog?.capture('footer_whatsapp_clicked');
+      } else if (type === 'linkedin') {
+        window.posthog?.capture('footer_linkedin_clicked');
+      } else if (type === 'language') {
+        window.posthog?.capture('language_switched', {
+          target_locale: link.dataset.targetLocale || 'unknown',
+        });
+      }
+    });
+  })();
+</script>

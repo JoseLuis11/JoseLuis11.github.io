@@ -78,6 +78,7 @@ const mobileMenuId = 'mobile-navigation-menu';
       header.classList.add('is-mobile-menu-open');
       trigger.setAttribute('aria-expanded', 'true');
       menu.removeAttribute('hidden');
+      window.posthog?.capture('mobile_menu_opened');
     };
 
     trigger.addEventListener('click', () => {
