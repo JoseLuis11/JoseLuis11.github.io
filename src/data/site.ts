@@ -26,6 +26,15 @@ export type Solution = {
   variant: 'blue' | 'light' | 'warm';
 };
 
+export type Client = {
+  name: string;
+  category: string;
+  description: string;
+  logo: 'ita';
+  url: string;
+  linkLabel: string;
+};
+
 export type Standard = {
   title: string;
   description: string;
@@ -65,6 +74,11 @@ export type SiteContent = {
     eyebrow: string;
     title: string;
     items: Solution[];
+  };
+  clients: {
+    eyebrow: string;
+    title: string;
+    items: Client[];
   };
   process: {
     eyebrow: string;
@@ -191,6 +205,20 @@ export const siteContent: Record<Locale, SiteContent> = {
           category: 'Presencia digital',
           description: 'Sitios web y landing pages diseñados para comunicar servicios con claridad y generar confianza.',
           variant: 'warm',
+        },
+      ],
+    },
+    clients: {
+      eyebrow: 'Clientes',
+      title: 'Negocios con los que construimos.',
+      items: [
+        {
+          name: 'Ita Beauty Room',
+          category: 'Sitio web y citas',
+          description: 'Una experiencia digital que presenta sus servicios y facilita la solicitud de citas por WhatsApp.',
+          logo: 'ita',
+          url: 'https://itabeautyroom.com/',
+          linkLabel: 'Visitar el sitio web de Ita Beauty Room (abre en una nueva pestaña)',
         },
       ],
     },
@@ -367,6 +395,20 @@ export const siteContent: Record<Locale, SiteContent> = {
           category: 'Web presence',
           description: 'Websites and landing pages designed to communicate services clearly and generate trust.',
           variant: 'warm',
+        },
+      ],
+    },
+    clients: {
+      eyebrow: 'Clients',
+      title: 'Businesses we build with.',
+      items: [
+        {
+          name: 'Ita Beauty Room',
+          category: 'Website and appointments',
+          description: 'A digital experience that presents their services and makes it easy to request an appointment through WhatsApp.',
+          logo: 'ita',
+          url: 'https://itabeautyroom.com/',
+          linkLabel: 'Visit the Ita Beauty Room website (opens in a new tab)',
         },
       ],
     },
